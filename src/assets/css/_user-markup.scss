@@ -1,0 +1,45 @@
+.user-markup {
+
+    :is(h1, h2, h3, h4, h5, h6) {
+        margin: 0 0 1rem;
+    }
+
+    img {
+        border-left: 8px solid var(--color-tertiary);
+    }
+
+    img[align=right] {
+        float: right;
+    }
+
+    p {
+        overflow: visible;
+    }
+
+    :is(p, dt, dd, li) {
+		font-size: 1.1rem;
+        line-height: 1.6;
+        font-weight: 400;
+
+		@media screen and (min-width: 768px) {
+			font-size: 21px;
+		}
+    }
+
+    dd {
+        margin-block-end: 1rem;
+    }
+
+    header {
+        padding: 0 0 1rem;
+    }
+
+    pre {
+        padding-bottom: 1rem;
+    }
+
+    > :last-child {
+        margin-block-end: 0;
+    }
+
+}

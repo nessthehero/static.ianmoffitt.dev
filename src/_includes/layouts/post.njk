@@ -1,0 +1,29 @@
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+    <article class="content cell" style="view-transition-name: post-{{ fileSlug }}">
+        <header>
+            {% if not type or type == 'timely' %}
+                <time>{{ page.date | date("y MMM dd")}}</time>
+            {% endif %}
+            {% if type == 'evergreen' %}
+                {%- if lastmod -%}
+                    <time>Last modified: {{ lastmod | date("y MMM dd") }}</time>
+                {%- endif -%}
+            {% endif %}
+            <h1>{{ post.attributes.title }}</h1>
+        </header>
+        <div class="user-markup">
+            {{ content | safe }}
+        </div>
+    </article>
+
+    {% if isDevelopment %}
+        <article class="content">
+            <details>
+                <summary>Debug Info</summary>
+                <pre>{{ page | debug | safe }}</pre>
+            </details>
+        </article>
+    {% endif %}
+{% endblock %}

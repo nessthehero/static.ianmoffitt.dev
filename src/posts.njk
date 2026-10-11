@@ -1,0 +1,26 @@
+---
+title: "IanMoffitt.dev - Archive"
+permalink: "posts/index.html"
+dynamicPermalink: false
+---
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+    <article class="content">
+        <div class="user-markup">
+            <h1>Archive</h1>
+            {% set displayYear = 0 %}
+                {% for post in collections.posts|sort(attribute='page.date')|reverse %}
+                    {% set p = post.data %}
+                    {% set postDate = p.page.date | date("yyyy") %}
+                    {% if postDate !== displayYear %}
+                        {% set displayYear = postDate %}
+                        <h2>{{ displayYear }}</h2>
+                    {% endif %}
+                    <a href="{{ p.page.url }}">{{ p.title }}</a><br/>
+                {% endfor %}
+            {{ collections.posts | debug | safe }}
+
+        </div>
+    </article>
+{% endblock %}

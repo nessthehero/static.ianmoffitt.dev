@@ -1,0 +1,49 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended"
+	],
+	"configMigration": true,
+	"timezone": "America/New_York",
+	"lockFileMaintenance": {
+		"enabled": true
+	},
+	"rebaseWhen": "auto",
+	"automerge": true,
+	"automergeSchedule": [
+		"* 4-21 * * *"
+	],
+	"prConcurrentLimit": 1,
+	"rangeStrategy": "bump",
+	"addLabels": [
+		"renovate"
+	],
+	"branchPrefix": "renovate/",
+	"enabledManagers": [
+		"npm"
+	],
+	"dependencyDashboard": true,
+	"packageRules": [
+		{
+			"matchManagers": [
+				"npm"
+			],
+			"matchUpdateTypes": [
+				"patch",
+				"minor"
+			],
+			"matchPackageNames": [
+				"/.*/"
+			],
+			"commitMessagePrefix": "[RENOVATE] [NPM]",
+			"automerge": true,
+			"prPriority": 1
+		},
+		{
+			"matchUpdateTypes": [
+				"major"
+			],
+			"enabled": false
+		}
+	]
+}

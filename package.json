@@ -1,0 +1,36 @@
+{
+	"name": "11ty",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npm run prod_debug && mocha './mocha/*.js'",
+		"clean": "rm -rf ./dist/* && rm -rf ./.cache/*",
+		"build": "npm run clean && npx @11ty/eleventy",
+		"prod": "npm run clean && MODE=production npx @11ty/eleventy --quiet",
+		"prod_debug": "npm run clean && MODE=development DEBUG=Eleventy* npx @11ty/eleventy",
+		"serve": "npm run clean && MODE=development DEBUG=Eleventy* npx @11ty/eleventy --serve",
+		"cypress": "cypress open"
+	},
+	"mocha": {},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@11ty/eleventy": "^3.1.5",
+		"@11ty/eleventy-fetch": "^5.1.2",
+		"cssnano": "^7.1.9",
+		"dotenv": "^17.4.2",
+		"eleventy-sass": "^3.0.0-beta.0",
+		"foundation-sites": "^6.9.0",
+		"jstransformer-markdown-it": "^3.0.0",
+		"luxon": "^3.7.2",
+		"postcss": "^8.5.15",
+		"sass": "^1.100.0"
+	},
+	"devDependencies": {
+		"@cypress/code-coverage": "^3.14.7",
+		"cypress": "^15.16.0",
+		"mocha": "^11.7.6"
+	}
+}

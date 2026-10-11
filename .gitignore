@@ -1,0 +1,48 @@
+# PHP Storm
+.idea
+
+# Composer installed
+vendor
+web/core
+web/modules/contrib
+web/themes/contrib
+
+# Ignore paths that contain user-generated content.
+web/files
+web/sites/*/files
+web/sites/*/private
+
+# OS X
+.DS_Store
+
+# Private files
+/private
+/.editorconfig
+/.gitattributes
+
+# Drush config
+drush/drush.yml
+
+# Node modules
+node_modules
+
+# Compiled
+/html
+
+# Cache
+.stylelintcache
+
+# DDEV
+settings.ddev.php
+
+# ENV
+.env
+
+# Eleventy
+.cache
+
+# Project Notes
+IDEAS.txt
+
+# Cypress screenshots
+cypress/screenshots

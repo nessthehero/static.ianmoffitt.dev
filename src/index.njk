@@ -1,0 +1,38 @@
+---
+title: 'IanMoffitt.dev'
+description: 'Hi there! I am Ian Moffitt, a front-end developer living in Pittsburgh! This is my website.'
+---
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+	<article class="content">
+		<header>
+			<h1>Hello there!</h1>
+		</header>
+		<div class="user-markup">
+			{% markdown %}
+				{%- include "copy/intro.md" -%}
+			{% endmarkdown %}
+		</div>
+	</article>
+
+	{% for post in collections.posts %}
+		<article class="content content--snippet" style="view-transition-name: post-{{ post.data.page.fileSlug }}">
+			<header>
+				<h2>{{ post.data.title }}</h2>
+			</header>
+			<div class="user-markup">
+				{% if post.data.summary %}
+					<p>{{ post.data.summary }}</p>
+				{% endif %}
+				<a href="{{ post.url }}" class="small button">View Full Post</a>
+			</div>
+		</article>
+	{% endfor %}
+
+	{% if collections.posts.length > 5 %}
+	<article class="grid-x grid-padding-x align-center view-more">
+		<a href="/posts" class="button">View More Posts</a>
+	</article>
+	{% endif %}
+{% endblock %}
